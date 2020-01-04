@@ -1,0 +1,128 @@
+{
+  "x": {
+    "name": "Empty",
+    "desc": "Empty",
+    "file": "card-blank.png",
+    "file90": "card-blank-90.png",
+    "topLabel": "BLNK"
+  },
+  "0": {
+    "name": "CardType_Input_2_DVI",
+    "desc": "2 connector, Dual link DVI input",
+    "file": "card-dvi.png",
+    "file90": "card-dvi-90.png",
+    "topLabel": "IN"
+  },
+  "1": {
+    "name": "CardType_Input_4_SDI",
+    "desc": "4 connector, 3G-SDI input",
+    "file": "card-sdi.png",
+    "file90": "card-sdi-90.png",
+    "topLabel": "IN"
+  },
+  "2": {
+    "name": "CardType_Input_4_HDMI_DP",
+    "desc": "4 connector, 2x HDMI input, 2x DP input",
+    "file": "card-hdmi-dp.png",
+    "file90": "card-hdmi-dp-90.png",
+    "topLabel": "IN"
+  },
+  "3": {
+    "name": "CardType_Input_6_TRI_COMBO",
+    "desc": "6 connector, 1x DP input, 1x HDMI input, 4x 12G-SDI input",
+    "file": "card-tc.png",
+    "file90": "card-tc-90.png",
+    "topLabel": "IN"
+  },
+  "4": {
+    "name": "CardType_Input_4_HDMI20",
+    "desc": "4 connector, 4x HDMI 2.0 input",
+    "file": "card-hdmi2.png",
+    "file90": "card-hdmi-90.png",
+    "topLabel": "IN"
+  },
+  "5": {
+    "name": "CardType_Input_4_DP",
+    "desc": "4 connector, 4x DP 1.2",
+    "file": "card-dp.png",
+    "file90": "card-dp-90.png",
+    "topLabel": "IN"
+  },
+  "20": {
+    "name": "CardType_Output_2_DVI",
+    "desc": "2 connector, DVI Output",
+    "file": "card-dvi.png",
+    "file90": "card-dvi-90.png",
+    "topLabel": "OUT"
+  },
+  "21": {
+    "name": "CardType_Output_4_SDI",
+    "desc": "4 connector, 3G-SDI Output",
+    "file": "card-sdi.png",
+    "file90": "card-sdi-90.png",
+    "topLabel": "OUT"
+  },
+  "22": {
+    "name": "CardType_Output_4_HDMI",
+    "desc": "4 connector, HDMI Output",
+    "file": "card-hdmi.png",
+    "file90": "card-hdmi-90.png",
+    "topLabel": "OUT"
+  },
+  "23": {
+    "name": "CardType_Output_DP",
+    "desc": "4 connector, DP Output",
+    "file": "card-dp.png",
+    "file90": "card-dp-90.png",
+    "topLabel": "OUT"
+  },
+  "24": {
+    "name": "CardType_Output_Fibre",
+    "desc": "Fibre output card",
+    "file": "card-fibre.png",
+    "file90": "card-fibre-90.png",
+    "topLabel": "OUT"
+  },
+  "25": {
+    "name": "CardType_Output_6_TRI_COMBO",
+    "desc": "6 connector, 1x DP output, 1x HDMI output, 4x 12G-SDI Output",
+    "file": "card-tc.png",
+    "file90": "card-tc-90.png",
+    "topLabel": "OUT"
+  },
+  "26": {
+    "name": "CardType_Output_4_HDMI20",
+    "desc": "4 connector, 4x HDMI 2.0 Output",
+    "file": "card-hdmi2.png",
+    "file90": "card-hdmi-90.png",
+    "topLabel": "OUT"
+  },
+  "40": {
+    "name": "CardType_Output_Multiviewer",
+    "desc": "4 connectors, HDMI output (2 MVR Out)",
+    "file": "card-hdmi.png",
+    "file90": "card-hdmi-90.png",
+    "topLabel": "MVR"
+  },
+  "50": {
+    "name": "CardType_VPU",
+    "desc": "VPU card with PGM and PVW modes",
+    "file": "card-vpu.png",
+    "file90": "card-vpu-90.png",
+    "topLabel": "VPU"
+  },
+  "52": {
+    "name": "CardType_VPU",
+    "desc": "VPU card with PGM mode only",
+    "file": "card-vpu.png",
+    "file90": "card-vpu-90.png",
+    "topLabel": "VPU"
+  },
+  "70": {
+    "name": "CardType_Exp",
+    "desc": "CXP link card",
+    "file": "card-exp.png",
+    "file90": "card-exp-90.png",
+    "topLabel": "EXP"
+  }
+}
