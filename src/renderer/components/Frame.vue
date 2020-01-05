@@ -16,32 +16,31 @@
   </div>
 </el-card>
 
+<el-main style="width: 740px; margin: auto;" v-if="this.frames[simulator.frame].expCardOptions.length > 0 || this.frames[simulator.frame].vpuCardOptions.length > 0">
+  <el-card class="box-card">
+    <div slot="header" class="clearfix"><i class="el-icon-setting"></i> Settings</div>
+  <el-row :gutter="20">
+    <el-col :span="12" v-if="this.frames[simulator.frame].expCardOptions.length > 0">
+      Exp Link Cards:
+      <el-radio-group v-model="expCount" size="medium">
+        <el-radio-button v-for="option in frames[simulator.frame].expCardOptions" v-on:click="setExpCards(option)" v-bind:label="option"></el-radio-button>
+      </el-radio-group>
+    </el-col>
+
+    <el-col :span="12" v-if="this.frames[simulator.frame].vpuCardOptions.length > 0">
+      VPU Cards:
+      <el-radio-group v-model="vpuCount" size="medium">
+        <el-radio-button v-for="option in frames[simulator.frame].vpuCardOptions" v-on:click="setExpCards(option)" v-bind:label="option"></el-radio-button>
+      </el-radio-group>
+    </el-col>
+  </el-row>
+  </el-card>
+</el-main>
+
 <el-main style="width: 740px; margin: auto;">
   <el-card class="box-card">
-    <div slot="header" class="clearfix">
-      Settings
-    </div>
-
-<el-row :gutter="20">
-
-  <el-col :span="12" v-if="this.frames[simulator.frame].expCardOptions.length > 0">
-    Exp Link Cards:
-    <el-radio-group v-model="expCount" size="medium">
-      <el-radio-button v-for="option in frames[simulator.frame].expCardOptions" v-on:click="setExpCards(option)" v-bind:label="option"></el-radio-button>
-    </el-radio-group>
-  </el-col>
-
-  <el-col :span="12" v-if="this.frames[simulator.frame].vpuCardOptions.length > 0">
-    VPU Cards:
-    <el-radio-group v-model="vpuCount" size="medium">
-      <el-radio-button v-for="option in frames[simulator.frame].vpuCardOptions" v-on:click="setExpCards(option)" v-bind:label="option"></el-radio-button>
-    </el-radio-group>
-  </el-col>
-
-</el-row>
-
-
-
+    <div slot="header" class="clearfix"><i class="el-icon-link"></i> Links</div>
+  Links!
   </el-card>
 </el-main>
 
@@ -140,6 +139,8 @@ export default {
       this.simulator.frame = selectedFrame
       this.simulator.cards = frames[selectedFrame].defaultCards
       this.editFrameVisible = false
+      this.countExpCards()
+      this.countVpuCards()
     },
     setExpCards (num) {
       console.log('setExpCards', num)
