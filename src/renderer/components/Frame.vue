@@ -22,10 +22,25 @@
       Settings
     </div>
 
+<el-row :gutter="20">
+
+  <el-col :span="12" v-if="this.frames[simulator.frame].expCardOptions.length > 0">
     Exp Link Cards:
     <el-radio-group v-model="expCount" size="medium">
       <el-radio-button v-for="option in frames[simulator.frame].expCardOptions" v-on:click="setExpCards(option)" v-bind:label="option"></el-radio-button>
     </el-radio-group>
+  </el-col>
+
+  <el-col :span="12" v-if="this.frames[simulator.frame].vpuCardOptions.length > 0">
+    VPU Cards:
+    <el-radio-group v-model="vpuCount" size="medium">
+      <el-radio-button v-for="option in frames[simulator.frame].vpuCardOptions" v-on:click="setExpCards(option)" v-bind:label="option"></el-radio-button>
+    </el-radio-group>
+  </el-col>
+
+</el-row>
+
+
 
   </el-card>
 </el-main>
@@ -65,7 +80,8 @@ export default {
       editingCardAtIndex: null,
       editingCardOptions: null,
       editFrameVisible: false,
-      expCount: 0
+      expCount: 0,
+      vpuCount: 0
     }
   },
   computed: {
@@ -83,11 +99,28 @@ export default {
             this.simulator.cards[key] = '70'
             leftToSet = leftToSet - 1
           } else {
-            this.simulator.cards[key] = 'x'
+            if (this.simulator.cards[key] === '70') {
+              this.simulator.cards[key] = 'x'
+            }
           }
         }
-      });
-
+      })
+    },
+    vpuCount: function() {
+      var leftToSet = this.vpuCount
+      var slots = this.frames[this.simulator.frame].slotCompatability
+      Object.keys(slots).forEach(key => {
+        if (slots[key].includes('50')) {
+          if (leftToSet > 0) {
+            this.simulator.cards[key] = '50'
+            leftToSet = leftToSet - 1
+          } else {
+            if (this.simulator.cards[key] === '50') {
+              this.simulator.cards[key] = 'x'
+            }
+          }
+        }
+      })
     }
   },
   methods: {
@@ -101,6 +134,7 @@ export default {
       this.simulator.cards[this.editingCardAtIndex] = card
       this.editCardVisible = false
       this.countExpCards()
+      this.countVpuCards()
     },
     selectFrame (selectedFrame) {
       this.simulator.frame = selectedFrame
@@ -117,12 +151,21 @@ export default {
           count = count + 1
         }
       })
-      console.log('expCount Function', count)
       this.expCount = count
+    },
+    countVpuCards () {
+      var count = 0
+      this.simulator.cards.forEach(card => {
+        if (card === "50") {
+          count = count + 1
+        }
+      })
+      this.vpuCount = count
     }
   },
   mounted: function () {
     this.countExpCards()
+    this.countVpuCards()
   }
 }
 </script>
