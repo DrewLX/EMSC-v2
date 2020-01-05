@@ -22,7 +22,7 @@
       Settings
     </div>
 
-    Exp Link Cards: 
+    Exp Link Cards:
     <el-radio-group v-model="expCount" size="medium">
       <el-radio-button v-for="option in frames[simulator.frame].expCardOptions" v-on:click="setExpCards(option)" v-bind:label="option"></el-radio-button>
     </el-radio-group>
@@ -120,6 +120,9 @@ export default {
       console.log('expCount Function', count)
       this.expCount = count
     }
+  },
+  mounted: function () {
+    this.countExpCards()
   }
 }
 </script>
