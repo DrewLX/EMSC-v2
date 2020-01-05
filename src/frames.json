@@ -29,7 +29,8 @@
       "22": ["x", "50"]
     },
     "slotVisibility": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false],
-    "defaultCards": ["70", "70", "1", "1", "0", "0", "2", "2", "2", "2", "22", "22", "21", "40", "50", "50", "50", "50", "50", "50", "50", "50"]
+    "defaultCards": ["70", "70", "1", "1", "0", "0", "2", "2", "2", "2", "22", "22", "21", "40", "50", "50", "50", "50", "50", "50", "50", "50"],
+    "expCardOptions": ["0", "1", "2"]
   },
   "1" : {
     "name" : "S3",

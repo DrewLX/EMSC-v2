@@ -1,5 +1,6 @@
 <template>
 <div>
+
 <el-card class="box-card box-frame">
   <div slot="header" class="clearfix" v-on:click="editFrameVisible=true">
     <span class="frameName">{{ frames[simulator.frame].name }} : {{ simulator.name }}</span>
@@ -15,12 +16,19 @@
   </div>
 </el-card>
 
-<el-card class="box-card">
-  <div slot="header" class="clearfix">
-    Settings
-  </div>
+<el-main style="width: 740px; margin: auto;">
+  <el-card class="box-card">
+    <div slot="header" class="clearfix">
+      Settings
+    </div>
 
-</el-card>
+    Exp Link Cards: 
+    <el-radio-group v-model="expCount" size="medium">
+      <el-radio-button v-for="option in frames[simulator.frame].expCardOptions" v-on:click="setExpCards(option)" v-bind:label="option"></el-radio-button>
+    </el-radio-group>
+
+  </el-card>
+</el-main>
 
 <el-dialog
   :visible.sync="editCardVisible"
@@ -56,12 +64,30 @@ export default {
       editCardVisible: false,
       editingCardAtIndex: null,
       editingCardOptions: null,
-      editFrameVisible: false
+      editFrameVisible: false,
+      expCount: 0
     }
   },
   computed: {
     frameStyle () {
       return 'frameStyle' + [this.simulator.frame]
+    }
+  },
+  watch: {
+    expCount: function() {
+      var leftToSet = this.expCount
+      var slots = this.frames[this.simulator.frame].slotCompatability
+      Object.keys(slots).forEach(key => {
+        if (slots[key].includes('70')) {
+          if (leftToSet > 0) {
+            this.simulator.cards[key] = '70'
+            leftToSet = leftToSet - 1
+          } else {
+            this.simulator.cards[key] = 'x'
+          }
+        }
+      });
+
     }
   },
   methods: {
@@ -74,11 +100,25 @@ export default {
       console.log(this.editingCardAtIndex, card)
       this.simulator.cards[this.editingCardAtIndex] = card
       this.editCardVisible = false
+      this.countExpCards()
     },
     selectFrame (selectedFrame) {
       this.simulator.frame = selectedFrame
       this.simulator.cards = frames[selectedFrame].defaultCards
       this.editFrameVisible = false
+    },
+    setExpCards (num) {
+      console.log('setExpCards', num)
+    },
+    countExpCards () {
+      var count = 0
+      this.simulator.cards.forEach(card => {
+        if (card === "70") {
+          count = count + 1
+        }
+      })
+      console.log('expCount Function', count)
+      this.expCount = count
     }
   }
 }
