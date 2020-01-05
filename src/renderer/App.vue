@@ -5,7 +5,7 @@
 
     <el-tab-pane name="overview">
       <span slot="label"><i class="el-icon-setting"></i> Overview Settings</span>
-      <SystemOverview />
+      <SystemOverview v-bind:config="config" />
     </el-tab-pane>
 
     <el-tab-pane name="console">
@@ -17,6 +17,7 @@
       <span slot="label"><i class="el-icon-c-scale-to-original"></i> {{ simulator.name }}</span>
       <Frame v-bind:simulator="simulator" />
     </el-tab-pane>
+
 
   </el-tabs>
 
@@ -36,7 +37,7 @@ export default {
   },
   data () {
     return {
-      activeName: '0',
+      activeName: 'overview',
       config: defaultConfig
     }
   },
